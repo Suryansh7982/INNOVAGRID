@@ -140,9 +140,17 @@ function nextQuestion() {
     score++;
   }
 
-  currentQuestion++;
-  selectedAnswer = null;
-  render();
+  const app = document.getElementById('app');
+  app.style.opacity = '0';
+  app.style.transform = 'translateX(-50px)';
+
+  setTimeout(() => {
+    currentQuestion++;
+    selectedAnswer = null;
+    render();
+    app.style.opacity = '1';
+    app.style.transform = 'translateX(0)';
+  }, 300);
 }
 
 function restartQuiz() {
